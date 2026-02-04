@@ -1,0 +1,54 @@
+# ------------------------------------------------
+# PYTHON & JUPYTER (Standard)
+# ------------------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.ipynb_checkpoints/
+
+# ------------------------------------------------
+# DANE I MODELE (Kluczowe dla BraTS!)
+# ------------------------------------------------
+# Ignorujemy cały folder z danymi
+data/
+
+# Ignorujemy folder z ciężkimi wagami modeli
+models/
+experiments/
+
+# Zabezpieczenie: gdybyś przypadkiem zapisał plik poza folderem data
+*.nii
+*.nii.gz
+*.h5
+*.hdf5
+*.keras
+
+# ------------------------------------------------
+# LOGI I PLIKI TYMCZASOWE
+# ------------------------------------------------
+logs/
+*.log
+*.csv
+
+# ------------------------------------------------
+# IDE (Edytory)
+# ------------------------------------------------
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/launch.json
+
+# PyCharm / IntelliJ
+.idea/
+
+# ------------------------------------------------
+# SYSTEMOWE
+# ------------------------------------------------
+.DS_Store
+Thumbs.db
+!/.venv/
