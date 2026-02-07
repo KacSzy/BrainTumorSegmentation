@@ -14,7 +14,7 @@ class BraTSGenerator(tf.keras.utils.Sequence):
     MRI volumes and segmentation masks in batches during model training.
     """
 
-    def __init__(self, patient_ids, data_dir, batch_size, img_size=(128, 128, 128), shuffle=True):
+    def __init__(self, patient_ids, data_dir, batch_size, img_size=(128, 128, 128), shuffle=True, **kwargs):
         """
         Initializes the BraTS data generator.
 
@@ -24,6 +24,8 @@ class BraTSGenerator(tf.keras.utils.Sequence):
         :param img_size: Expected dimensions of input volumes (H, W, D). Defaults to (128, 128, 128).
         :param shuffle: Whether to shuffle patient IDs at the end of each epoch. Defaults to True.
         """
+        super().__init__(**kwargs)
+
         self.patient_ids = patient_ids
         self.data_dir = data_dir
         self.batch_size = batch_size
