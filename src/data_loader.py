@@ -22,12 +22,12 @@ class BraTSLoader:
         return [d for d in os.listdir(self.data_dir)
                 if os.path.isdir(os.path.join(self.data_dir, d))]
 
-    def load_patient_data(self, patient_id: str) -> Tuple[np.ndarray, np.ndarray]:
+    def load_patient_data(self, patient_id: str) -> Tuple[np.ndarray, np.ndarray | None]:
         """
         Loads the MRI scans and segmentation mask for a given `patient`.
 
         :param patient_id: The ID of the patient to load data for. Must match a directory name in the dataset.
-        :return: A tuple containing the 4-channel MRI volume (H, W, D, 4) and the segmentation mask (H, W, D).
+        :return: A tuple containing the 4-channel MRI volume (H, W, D, 4) and the segmentation mask (H, W, D) or None.
         
         :raises FileNotFoundError: If a required modality file is missing.
         """
@@ -41,7 +41,6 @@ class BraTSLoader:
 
         # 1. Loading MRI Modalities
         for mod in modalities:
-
             file_name = f"{patient_id}_{mod}.nii"
             file_path = os.path.join(patient_path, file_name)
 
@@ -52,8 +51,11 @@ class BraTSLoader:
         volume = np.stack(slices, axis=-1)
 
         # 2. Loading Segmentation Mask
-        mask_name = f"{patient_id}_seg.nii"
-        mask_path = os.path.join(patient_path, mask_name)
-        mask = nib.load(mask_path).get_fdata().astype(np.uint8)
+        try:
+            mask_name = f"{patient_id}_seg.nii"
+            mask_path = os.path.join(patient_path, mask_name)
+            mask = nib.load(mask_path).get_fdata().astype(np.uint8)
+        except FileNotFoundError:
+            return volume, None
 
         return volume, mask

@@ -99,3 +99,17 @@ def preprocess_data(volume, mask, target_shape=(128, 128, 128)) -> tuple[np.ndar
     processed_volume, processed_mask = _crop_to_target_shape(volume, mask, target_shape)
 
     return processed_volume, processed_mask
+
+def preprocess_val_data(volume, target_shape=(128, 128, 128)) -> np.ndarray:
+    """
+    Preprocesses the given volumetric data by initializing a temporary mask with the same
+    spatial dimensions as the first channel of the input volume. Ensures the resulting
+    data conforms to the operations' requirements for processing.
+
+    :param volume: The input 3D MRI volume data.
+    :param target_shape: The desired output shape for the volume and mask.
+    :return: Prepared data for analyzing brain tumors.
+    """
+    temp_mask = np.zeros_like(volume[..., 0])
+    processed_volume, _ = preprocess_data(volume, temp_mask, target_shape)
+    return processed_volume
