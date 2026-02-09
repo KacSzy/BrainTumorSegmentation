@@ -1,4 +1,3 @@
-# src/data_generator.py
 import os
 import numpy as np
 import nibabel as nib
