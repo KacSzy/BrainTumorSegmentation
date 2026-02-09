@@ -8,7 +8,7 @@
 ## Project Overview
 This project implements a **3D U-Net** architecture to perform volumetric segmentation of brain tumors from multimodal MRI scans (BraTS 2020 dataset). The model identifies three tumor sub-regions: **Necrotic Core**, **Peritumoral Edema**, and **Enhancing Tumor**.
 
-## ⚙️ Data Pipeline
+## Data Pipeline
 The project processes multimodal MRI scans (T1, T1ce, T2, FLAIR) using a custom pipeline designed for high-dimensional medical data.
 
 1. **Preprocessing & Volume Handling:**
