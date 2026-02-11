@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.16%2B-orange?logo=tensorflow&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
-![Dice Score](https://img.shields.io/badge/Best_Dice_Score-0.96-brightgreen)
+![Dice Score](https://img.shields.io/badge/Best_Dice_Score-0.98-brightgreen)
 
 ## Project Overview
 This project implements a **3D U-Net** architecture to perform volumetric segmentation of brain tumors from multimodal MRI scans (BraTS 2020 dataset). The model identifies three specific tumor sub-regions, crucial for clinical diagnosis and treatment planning:
