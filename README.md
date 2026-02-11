@@ -27,7 +27,6 @@ This project implements a **3D U-Net** architecture to perform volumetric segmen
 │   ├── generator.py         # BraTSGenerator for batch data loading
 │   ├── preprocessing.py     # Z-score normalization & background removal logic
 │   └── visualization.py     # Plotly 3D interactive rendering
-├── models/              # Saved model weights and training logs
 ├── results/             # Output visualizations and predictions
 └── README.md
 ```
@@ -71,11 +70,11 @@ $$\mathcal{L}_{Dice} = 1 - \frac{2 \sum_{i} p_{i} \cdot g_{i} + \epsilon}{\sum_{
 ## Key Results
 Evaluation performed on the independent test set. The model achieves state-of-the-art performance in detecting the Whole Tumor region.
 
-| Region | Description | Mean Dice Score | Best Case |
-| :--- | :--- | :--- | :--- |
-| **Whole Tumor (WT)** | Visible Edema + Core + Enhancing | **0.93** | **0.98** |
-| **Tumor Core (TC)** | Necrotic Core + Enhancing Tumor | **0.90** | **0.98** |
-| **Enhancing (ET)** | Active Enhancing Tumor (Class 3) | **0.79** | **1.00** |
+| Region               | Description                      | Mean Dice Score | Best Case |
+|:---------------------|:---------------------------------|:----------------|:----------|
+| **Whole Tumor (WT)** | Visible Edema + Core + Enhancing | **0.93**        | **0.98**  |
+| **Tumor Core (TC)**  | Necrotic Core + Enhancing Tumor  | **0.90**        | **0.98**  |
+| **Enhancing (ET)**   | Active Enhancing Tumor (Class 3) | **0.79**        | **1.00**  |
 
 ## 🖼Visualizations
 
@@ -96,7 +95,7 @@ Evaluation performed on the independent test set. The model achieves state-of-th
 ### Setup
 ```bash
 # Clone the repository
-git clone https://github.com/KacSzy/3d-brain-tumor-segmentation.git
+git clone https://github.com/KacSzy/BrainTumorSegmentation.git
 cd 3d-brain-tumor-segmentation
 
 # Install dependencies
